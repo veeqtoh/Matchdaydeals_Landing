@@ -105,7 +105,7 @@
                 </h5>
                 <div class="row">
                     <div class="col-md-12 col-sm6-6 col-sm-offset-1 ">
-                        <form class="form-inline" role="form" method="POST" action="/subscribe">
+                        <form class="form-inline" role="form" method="post" action="/subscribe">
                         @csrf
                           <div class="form-group col-md-4">
                             <label class="sr-only" for="name">Name</label>
@@ -134,10 +134,9 @@
     </div>
  </div>
  </body>
-   <script src="{{asset('js/jquery-1.10.2.js')}}" type="text/javascript" defer></script>
+    <script src="{{asset('js/jquery-3.3.1.min.js')}}" type="text/javascript"></script>
    <script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript" defer></script>
-   <script src="{{asset('js/toastr.min.js')}}" type="text/javascript" defer></script>
-
+   <script src="{{asset('js/toastr.min.js')}}" type="text/javascript"></script>
        <script>
         @if(Session::has('subscribed'))
                 toastr.success('{{Session::get('subscribed')}}')
