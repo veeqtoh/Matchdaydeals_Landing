@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::post('/subscribe', function  (){
+    $name = $request('name');
+    $phone = $request('phone');
+    $email = $request('email');
+
+    Newsletter::subscribe($email);
+    Session::flash('subscribed', 'Successfully subscribed.');
+
+    return redirect()->back();
+});

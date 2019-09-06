@@ -9,8 +9,10 @@
 
     <title>Match Day Deals | coming soon </title>
 
-    <link href="css/bootstrap.css" rel="stylesheet" />
-	<link href="css/coming-sssoon.css" rel="stylesheet" />
+    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/coming-sssoon.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+
 
     <!--     Fonts     -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
@@ -59,19 +61,19 @@
       </ul>-->
       <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="#">
-                    <i class="fa fa-facebook-square"></i>
-                    Share
+                <a href="https://instagram.com/matchdaydeals" target="_blank">
+                    <i class="fa fa-instagram"></i>
+                    Follow
                 </a>
             </li>
              <li>
-                <a href="#">
+                <a href="https://twitter.com/matchdaydeals" target="_blank">
                     <i class="fa fa-twitter"></i>
                     Tweet
                 </a>
             </li>
              <li>
-                <a href="#">
+                <a href="mailto:info@matchdaydeals.com">
                     <i class="fa fa-envelope-o"></i>
                     Email
                 </a>
@@ -93,20 +95,29 @@
         <h1 class="logo cursive">
             Match Day Deals.
         </h1>
-<!--  H1 can have 2 designs: "logo" and "logo cursive"           -->
+<!--  H1 can have 2 designs: "logo" and "logo cursive"-->
 
         <div class="content">
-            <h4 class="motto">Find the Best deals on Bets, Flights, Car rentals <br/><br/>On matchday.</h4>
+            <h4 class="motto">Find the Best deals on Bets, Flights, Car rentals and more <br/><br/>On matchday.</h4>
             <div class="subscribe">
                 <h5 class="info-text">
                     Join the waiting list for the main app Launch. We will keep you posted.
                 </h5>
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-4 col-sm6-6 col-sm-offset-3 ">
-                        <form class="form-inline" role="form">
-                          <div class="form-group">
+                    <div class="col-md-12 col-sm6-6 col-sm-offset-1 ">
+                        <form class="form-inline" role="form" method="POST" action="/subscribe">
+                        @csrf
+                          <div class="form-group col-md-4">
+                            <label class="sr-only" for="name">Name</label>
+                            <input type="text" name="name" class="form-control transparent" placeholder="Your name here..." required>
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label class="sr-only" for="phone">Phone</label>
+                            <input type="tel" name="phone" class="form-control transparent" placeholder="Your phone number here..." required>
+                          </div>
+                          <div class="form-group col-md-4">
                             <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                            <input type="email" class="form-control transparent" placeholder="Your email here...">
+                            <input type="email" name="email" class="form-control transparent" placeholder="Your email here..." required>
                           </div>
                           <button type="submit" class="btn btn-danger btn-fill">Notify Me</button>
                         </form>
@@ -118,12 +129,22 @@
     </div>
     <div class="footer">
       <div class="container">
-             Made with <i class="fa fa-heart heart"></i> by <a href="http://www.jappsystems.com.ng">Japps Systems</a>.
+             Made with <i class="fa fa-heart heart"></i> by <a href="http://www.theveeq.com">Japps Systems</a>.
       </div>
     </div>
  </div>
  </body>
-   <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
-   <script src="js/bootstrap.min.js" type="text/javascript"></script>
+   <script src="{{asset('js/jquery-1.10.2.js')}}" type="text/javascript" defer></script>
+   <script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript" defer></script>
+   <script src="{{asset('js/toastr.min.js')}}" type="text/javascript" defer></script>
+
+       <script>
+        @if(Session::has('subscribed'))
+                toastr.success('{{Session::get('subscribed')}}')
+        @endif
+        @if(Session::has('info'))
+                toastr.info('{{Session::get('info')}}')
+        @endif
+    </script>
 
 </html>
