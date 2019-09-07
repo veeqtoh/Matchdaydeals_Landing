@@ -83,7 +83,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>
-<div class="main" style="background-image: url('images/defaultt.jpg')">
+<div class="main" style="background-image: url('images/default.jpg')">
 
 <!--    Change the image source '/images/default.jpg' with your favourite image.     -->
 
@@ -98,7 +98,7 @@
 <!--  H1 can have 2 designs: "logo" and "logo cursive"-->
 
         <div class="content">
-            <h4 class="motto">Find the Best deals on Bets, Flights, Car rentals and more <br/><br/>On matchday.</h4>
+            <h4 class="motto">Going to the stadium? Watching at the pub?<br/><br/>Get all the best deals here. </h4>
             <div class="subscribe">
                 <h5 class="info-text">
                     Join the waiting list for the main app Launch. We will keep you posted.
@@ -108,8 +108,8 @@
                         <form class="form-inline" role="form" method="post" action="/subscribe">
                         @csrf
                           <div class="form-group col-md-4">
-                            <label class="sr-only" for="name">Name</label>
-                            <input type="text" name="name" class="form-control transparent" placeholder="Your name here..." required>
+                            <label class="sr-only" for="name">Name or Business Name</label>
+                            <input type="text" name="name" class="form-control transparent" placeholder="Your name or Business name here..." required>
                           </div>
                           <div class="form-group col-md-4">
                             <label class="sr-only" for="phone">Phone</label>
